@@ -3,10 +3,12 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjects.LoginPage;
 import pageObjects.AdminPage;
+import io.cucumber.java.After;
 
 public class AdminSteps {
     WebDriver driver;
@@ -16,9 +18,18 @@ public class AdminSteps {
     @Given("I am on the OrangeHRM login page")
     public void i_am_on_the_orangehrm_login_page() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        //  Headless
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Enables headless mode
+        options.addArguments("--window-size=1920x1080"); // Optional: Ensures full page rendering
+        driver = new ChromeDriver(options);
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        driver.manage().window().maximize();
+
+//       Headed
+//       driver = new ChromeDriver();
+//       driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//       driver.manage().window().maximize();
+
     }
 
     @When("I enter valid admin credentials")
@@ -44,5 +55,12 @@ public class AdminSteps {
             System.out.println("Failed to navigate to Admin page");
         }
         driver.quit();
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
