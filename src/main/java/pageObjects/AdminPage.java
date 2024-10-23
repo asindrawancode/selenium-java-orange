@@ -11,7 +11,7 @@ public class AdminPage {
     WebDriverWait wait;
 
     By adminTab = By.xpath("//span[normalize-space()='Admin']");
-    By adminPageTitle = By.className("oxd-topbar-header-breadcrumb-level");
+    By adminPageTitle = By.xpath("//h6[text()='User Management']");
 
     public AdminPage(WebDriver driver) {
         this.driver = driver;
