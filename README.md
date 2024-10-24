@@ -81,18 +81,6 @@ src
 
 - **login.feature**, **admin.feature**, **pim.feature**, **leave.feature**: These files describe user scenarios using Gherkin syntax and are the basis for generating executable specifications.
 
-## Contributing
+## Cucumber Report
 
-- Fork the repository.
-- Create your feature branch: `git checkout -b feature/AmazingFeature`
-- Commit your changes: `git commit -m 'Add some feature'`
-- Push to the branch: `git push origin feature/AmazingFeature`
-- Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any queries regarding the project, please contact [me].
+![img.png](img.png)
